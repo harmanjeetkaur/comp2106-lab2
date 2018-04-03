@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 //references we added
 const mongoose = require('mongoose');
-  
+const config =  require('./config/globals');
 
 var index = require('./controller/index');
 var users = require('./controller/users');
@@ -28,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+// db connection
+mongoose.connect(config.vars.db);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
