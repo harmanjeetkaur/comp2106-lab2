@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//references we added
+const mongoose = require('mongoose');
+  
+
 var index = require('./controller/index');
 var users = require('./controller/users');
 
