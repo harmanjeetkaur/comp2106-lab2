@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 //references we added
 const mongoose = require('mongoose');
 const config =  require('./config/globals');
+const family =  require('./config/family');
 
 var index = require('./controller/index');
 var users = require('./controller/users');
@@ -28,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+//map all requests with /family to the family controller
+app.use('/family', family);
 
 // db connection
 mongoose.connect(config.vars.db);
